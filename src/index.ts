@@ -1,11 +1,9 @@
+require("dotenv").config();
 import { Request, Response } from "express";
-import dotenv from "dotenv";
 import "reflect-metadata";
 import { dataSourceInit } from "./db/init";
 import { createExpressServer } from "routing-controllers";
 import path from "path";
-
-dotenv.config();
 
 (async function bootstrap() {
   await dataSourceInit();
