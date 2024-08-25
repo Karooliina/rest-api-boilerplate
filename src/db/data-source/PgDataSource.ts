@@ -2,7 +2,7 @@ import { DataSource } from "typeorm";
 
 export const PgDataSource = new DataSource({
   type: "postgres",
-  host: "localhost",
+  host: String(process.env.DB_HOST),
   port: 5432,
   username: String(process.env.POSTGRES_USER),
   password: String(process.env.POSTGRES_PASSWORD),
