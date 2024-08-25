@@ -5,7 +5,10 @@
   "scripts": {
     "build": "npx tsc",
     "start": "node dist/index.js",
-    "dev": "npx nodemon src/index.ts"
+    "dev": "npx nodemon src/index.ts",
+    "test": "",
+    "migration:run": "typeorm-ts-node-commonjs -d src/db/data-source/PgDataSource.ts migration:run",
+    "migration:generate": "typeorm-ts-node-commonjs migration:generate -d src/db/data-source/PgDataSource.ts"
   },
   "author": "",
   "license": "ISC",

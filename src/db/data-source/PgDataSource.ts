@@ -1,5 +1,4 @@
 import { DataSource } from "typeorm";
-import { ExampleEntity } from "../entity/ExampleEntity";
 
 export const PgDataSource = new DataSource({
   type: "postgres",
@@ -8,9 +7,10 @@ export const PgDataSource = new DataSource({
   username: String(process.env.POSTGRES_USER),
   password: String(process.env.POSTGRES_PASSWORD),
   database: String(process.env.POSTGRES_DB),
-  synchronize: true,
+  synchronize: false,
+  migrationsRun: false,
   logging: true,
-  entities: [ExampleEntity],
+  entities: ["src/db/entity/*.ts"],
   subscribers: [],
-  migrations: [],
+  migrations: ["src/db/migrations/*.ts"],
 });
